@@ -29,7 +29,7 @@ public abstract class BaseDemoActivity extends FragmentActivity implements OnMap
     private boolean mIsRestore;
 
     protected int getLayoutId() {
-        return R.layout.map;
+        return R.layout.activity_maps;
     }
 
     @Override
@@ -50,7 +50,7 @@ public abstract class BaseDemoActivity extends FragmentActivity implements OnMap
     }
 
     private void setUpMap() {
-        ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
+        ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView)).getMapAsync(this);
     }
 
     /**

@@ -15,13 +15,17 @@
  */
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.google.maps.android.utils.demo"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -50,6 +54,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 // [START maps_android_utils_install_snippet]
@@ -60,6 +68,46 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    // Design Support
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    // Navigation Lib Support
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
+
+    // Lottie Animation
+    def lottieVersion = '3.4.0'
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    // Retrofit, OkHttp, Timber
+    def retrofitVersion = "2.5.0"
+    def okHttpVersion = "4.2.1"
+    def timberVersion = "4.7.1"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+
+    // Retrofit and GSON Support
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    //  RxJava Support
+    implementation "io.reactivex.rxjava3:rxjava:3.0.4"
+
+    // RxAndroid
+    def rxandroid_version = '2.1.1'
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+
+    // Reactive Streams (convert Observable to LiveData)
+    def reactivestreams_version = "1.1.1"
+    implementation "android.arch.lifecycle:reactivestreams:$reactivestreams_version"
+
+    // Rx-Retrofit Call Adapter
+    def rxcalladapter_version = '2.5.0'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rxcalladapter_version"
     // [END_EXCLUDE]
 }
 // [END maps_android_utils_install_snippet]

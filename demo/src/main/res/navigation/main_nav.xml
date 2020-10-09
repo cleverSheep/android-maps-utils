@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/mapsFragment">
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.google.maps.android.utils.demo.MapsFragment"
+        android:label="ECU Flood Prevention App">
+        <action
+            android:id="@+id/action_mapsFragment_to_locationDetail"
+            app:destination="@id/locationDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationDetail"
+        android:name="com.google.maps.android.utils.demo.LocationDetail"
+        android:label="Back">
+        <argument
+            android:name="sensor_name"
+            app:argType="string" />
+    </fragment>
+</navigation>
