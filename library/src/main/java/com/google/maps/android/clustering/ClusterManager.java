@@ -37,9 +37,9 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * Groups many items on a map based on zoom level.
+ * Groups many items on a activity_maps based on zoom level.
  * <p/>
- * ClusterManager should be added to the map as an: <ul> <li>{@link com.google.android.gms.maps.GoogleMap.OnCameraIdleListener}</li>
+ * ClusterManager should be added to the activity_maps as an: <ul> <li>{@link com.google.android.gms.maps.GoogleMap.OnCameraIdleListener}</li>
  * <li>{@link com.google.android.gms.maps.GoogleMap.OnMarkerClickListener}</li> </ul>
  */
 public class ClusterManager<T extends ClusterItem> implements
@@ -159,7 +159,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Removes all items from the cluster manager. After calling this method you must invoke
-     * {@link #cluster()} for the map to be cleared.
+     * {@link #cluster()} for the activity_maps to be cleared.
      */
     public void clearItems() {
         final Algorithm<T> algorithm = getAlgorithm();
@@ -173,7 +173,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Adds items to clusters. After calling this method you must invoke {@link #cluster()} for the
-     * state of the clusters to be updated on the map.
+     * state of the clusters to be updated on the activity_maps.
      * @param items items to add to clusters
      * @return true if the cluster manager contents changed as a result of the call
      */
@@ -189,7 +189,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Adds an item to a cluster. After calling this method you must invoke {@link #cluster()} for
-     * the state of the clusters to be updated on the map.
+     * the state of the clusters to be updated on the activity_maps.
      * @param myItem item to add to clusters
      * @return true if the cluster manager contents changed as a result of the call
      */
@@ -205,7 +205,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Removes items from clusters. After calling this method you must invoke {@link #cluster()} for
-     * the state of the clusters to be updated on the map.
+     * the state of the clusters to be updated on the activity_maps.
      * @param items items to remove from clusters
      * @return true if the cluster manager contents changed as a result of the call
      */
@@ -221,7 +221,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Removes an item from clusters. After calling this method you must invoke {@link #cluster()}
-     * for the state of the clusters to be updated on the map.
+     * for the state of the clusters to be updated on the activity_maps.
      * @param item item to remove from clusters
      * @return true if the item was removed from the cluster manager as a result of this call
      */
@@ -237,7 +237,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Updates an item in clusters. After calling this method you must invoke {@link #cluster()} for
-     * the state of the clusters to be updated on the map.
+     * the state of the clusters to be updated on the activity_maps.
      * @param item item to update in clusters
      * @return true if the item was updated in the cluster manager, false if the item is not
      * contained within the cluster manager and the cluster manager contents are unchanged
@@ -253,7 +253,7 @@ public class ClusterManager<T extends ClusterItem> implements
     }
 
     /**
-     * Force a re-cluster on the map. You should call this after adding, removing, updating,
+     * Force a re-cluster on the activity_maps. You should call this after adding, removing, updating,
      * or clearing item(s).
      */
     public void cluster() {
@@ -283,7 +283,7 @@ public class ClusterManager<T extends ClusterItem> implements
         if (mAlgorithm.shouldReclusterOnMapMovement()) {
             cluster();
 
-            // Don't re-compute clusters if the map has just been panned/tilted/rotated.
+            // Don't re-compute clusters if the activity_maps has just been panned/tilted/rotated.
         } else if (mPreviousCameraPosition == null || mPreviousCameraPosition.zoom != mMap.getCameraPosition().zoom) {
             mPreviousCameraPosition = mMap.getCameraPosition();
             cluster();
@@ -323,7 +323,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Sets a callback that's invoked when a Cluster is tapped. Note: For this listener to function,
-     * the ClusterManager must be added as a click listener to the map.
+     * the ClusterManager must be added as a click listener to the activity_maps.
      */
     public void setOnClusterClickListener(OnClusterClickListener<T> listener) {
         mOnClusterClickListener = listener;
@@ -332,7 +332,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Sets a callback that's invoked when a Cluster info window is tapped. Note: For this listener to function,
-     * the ClusterManager must be added as a info window click listener to the map.
+     * the ClusterManager must be added as a info window click listener to the activity_maps.
      */
     public void setOnClusterInfoWindowClickListener(OnClusterInfoWindowClickListener<T> listener) {
         mOnClusterInfoWindowClickListener = listener;
@@ -341,7 +341,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Sets a callback that's invoked when a Cluster info window is long-pressed. Note: For this listener to function,
-     * the ClusterManager must be added as a info window click listener to the map.
+     * the ClusterManager must be added as a info window click listener to the activity_maps.
      */
     public void setOnClusterInfoWindowLongClickListener(OnClusterInfoWindowLongClickListener<T> listener) {
         mOnClusterInfoWindowLongClickListener = listener;
@@ -350,7 +350,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Sets a callback that's invoked when an individual ClusterItem is tapped. Note: For this
-     * listener to function, the ClusterManager must be added as a click listener to the map.
+     * listener to function, the ClusterManager must be added as a click listener to the activity_maps.
      */
     public void setOnClusterItemClickListener(OnClusterItemClickListener<T> listener) {
         mOnClusterItemClickListener = listener;
@@ -359,7 +359,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Sets a callback that's invoked when an individual ClusterItem's Info Window is tapped. Note: For this
-     * listener to function, the ClusterManager must be added as a info window click listener to the map.
+     * listener to function, the ClusterManager must be added as a info window click listener to the activity_maps.
      */
     public void setOnClusterItemInfoWindowClickListener(OnClusterItemInfoWindowClickListener<T> listener) {
         mOnClusterItemInfoWindowClickListener = listener;
@@ -368,7 +368,7 @@ public class ClusterManager<T extends ClusterItem> implements
 
     /**
      * Sets a callback that's invoked when an individual ClusterItem's Info Window is long-pressed. Note: For this
-     * listener to function, the ClusterManager must be added as a info window click listener to the map.
+     * listener to function, the ClusterManager must be added as a info window click listener to the activity_maps.
      */
     public void setOnClusterItemInfoWindowLongClickListener(OnClusterItemInfoWindowLongClickListener<T> listener) {
         mOnClusterItemInfoWindowLongClickListener = listener;

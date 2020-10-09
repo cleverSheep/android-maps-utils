@@ -96,7 +96,7 @@ public class GridBasedAlgorithm<T extends ClusterItem> extends AbstractAlgorithm
         synchronized (mItems) {
             result = removeItem(item);
             if (result) {
-                // Only add the item if it was removed (to help prevent accidental duplicates on map)
+                // Only add the item if it was removed (to help prevent accidental duplicates on activity_maps)
                 result = addItem(item);
             }
         }

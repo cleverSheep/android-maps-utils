@@ -38,7 +38,7 @@ public class Feature extends Observable {
      *
      * @param featureGeometry type of geometry to assign to the feature
      * @param id              common identifier of the feature
-     * @param properties      map containing properties related to the feature
+     * @param properties      activity_maps containing properties related to the feature
      */
     public Feature(Geometry featureGeometry, String id,
                    Map<String, String> properties) {
@@ -110,7 +110,7 @@ public class Feature extends Observable {
     /**
      * Gets whether the placemark has properties
      *
-     * @return true if there are properties in the properties map, false otherwise
+     * @return true if there are properties in the properties activity_maps, false otherwise
      */
     public boolean hasProperties() {
         return mProperties.size() > 0;

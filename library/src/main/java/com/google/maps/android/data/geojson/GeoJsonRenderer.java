@@ -38,8 +38,8 @@ public class GeoJsonRenderer extends Renderer implements Observer {
     /**
      * Creates a new GeoJsonRender object
      *
-     * @param map      map to place GeoJsonFeature objects on
-     * @param features contains a hashmap of features and objects that will go on the map
+     * @param map      activity_maps to place GeoJsonFeature objects on
+     * @param features contains a hashmap of features and objects that will go on the activity_maps
      * @param markerManager marker manager to create marker collection from
      * @param polygonManager polygon manager to create polygon collection from
      * @param polylineManager polyline manager to create polyline collection from
@@ -50,8 +50,8 @@ public class GeoJsonRenderer extends Renderer implements Observer {
     }
 
     /**
-     * Changes the map that GeoJsonFeature objects are being drawn onto. Existing objects are
-     * removed from the previous map and drawn onto the new map.
+     * Changes the activity_maps that GeoJsonFeature objects are being drawn onto. Existing objects are
+     * removed from the previous activity_maps and drawn onto the new activity_maps.
      *
      * @param map GoogleMap to place GeoJsonFeature objects on
      */
@@ -63,8 +63,8 @@ public class GeoJsonRenderer extends Renderer implements Observer {
     }
 
     /**
-     * Adds all of the stored features in the layer onto the map if the layer is
-     * not already on the map.
+     * Adds all of the stored features in the layer onto the activity_maps if the layer is
+     * not already on the activity_maps.
      */
     public void addLayerToMap() {
         if (!isLayerOnMap()) {
@@ -76,9 +76,9 @@ public class GeoJsonRenderer extends Renderer implements Observer {
     }
 
     /**
-     * Adds a new GeoJsonFeature to the map if its geometry property is not null.
+     * Adds a new GeoJsonFeature to the activity_maps if its geometry property is not null.
      *
-     * @param feature feature to add to the map
+     * @param feature feature to add to the activity_maps
      */
     public void addFeature(GeoJsonFeature feature) {
         super.addFeature(feature);
@@ -88,7 +88,7 @@ public class GeoJsonRenderer extends Renderer implements Observer {
     }
 
     /**
-     * Removes all GeoJsonFeature objects stored in the mFeatures hashmap from the map
+     * Removes all GeoJsonFeature objects stored in the mFeatures hashmap from the activity_maps
      */
     public void removeLayerFromMap() {
         if (isLayerOnMap()) {
@@ -101,9 +101,9 @@ public class GeoJsonRenderer extends Renderer implements Observer {
     }
 
     /**
-     * Removes a GeoJsonFeature from the map if its geometry property is not null
+     * Removes a GeoJsonFeature from the activity_maps if its geometry property is not null
      *
-     * @param feature feature to remove from map
+     * @param feature feature to remove from activity_maps
      */
     public void removeFeature(GeoJsonFeature feature) {
         // Check if given feature is stored
@@ -114,10 +114,10 @@ public class GeoJsonRenderer extends Renderer implements Observer {
     }
 
     /**
-     * Redraws a given GeoJsonFeature onto the map. The map object is obtained from the mFeatures
+     * Redraws a given GeoJsonFeature onto the activity_maps. The activity_maps object is obtained from the mFeatures
      * hashmap and it is removed and added.
      *
-     * @param feature feature to redraw onto the map
+     * @param feature feature to redraw onto the activity_maps
      */
     private void redrawFeatureToMap(GeoJsonFeature feature) {
         redrawFeatureToMap(feature, getMap());
@@ -142,15 +142,15 @@ public class GeoJsonRenderer extends Renderer implements Observer {
             GeoJsonFeature feature = ((GeoJsonFeature) observable);
             boolean featureIsOnMap = getAllFeatures().get(feature) != FEATURE_NOT_ON_MAP;
             if (featureIsOnMap && feature.hasGeometry()) {
-                // Checks if the feature has been added to the map and its geometry is not null
+                // Checks if the feature has been added to the activity_maps and its geometry is not null
                 // TODO: change this so that we don't add and remove
                 redrawFeatureToMap(feature);
             } else if (featureIsOnMap && !feature.hasGeometry()) {
-                // Checks if feature is on map and geometry is null
+                // Checks if feature is on activity_maps and geometry is null
                 removeFromMap(getAllFeatures().get(feature));
                 putFeatures(feature, FEATURE_NOT_ON_MAP);
             } else if (!featureIsOnMap && feature.hasGeometry()) {
-                // Checks if the feature isn't on the map and geometry is not null
+                // Checks if the feature isn't on the activity_maps and geometry is not null
                 addFeature(feature);
             }
         }

@@ -21,7 +21,7 @@ import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 
 /**
- * Keeps track of collections of polygons on the map. Delegates all Polygon-related events to each
+ * Keeps track of collections of polygons on the activity_maps. Delegates all Polygon-related events to each
  * collection's individually managed listeners.
  * <p/>
  * All polygon operations (adds and removes) should occur via its collection class. That is, don't

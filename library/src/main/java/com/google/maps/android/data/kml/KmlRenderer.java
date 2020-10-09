@@ -53,7 +53,7 @@ import java.util.Set;
 
 /**
  * Renders all visible KmlPlacemark and KmlGroundOverlay objects onto the GoogleMap as Marker,
- * Polyline, Polygon, GroundOverlay objects. Also removes objects from the map.
+ * Polyline, Polygon, GroundOverlay objects. Also removes objects from the activity_maps.
  */
 public class KmlRenderer extends Renderer {
 
@@ -81,12 +81,12 @@ public class KmlRenderer extends Renderer {
     }
 
     /**
-     * Removes all given KML placemarks from the map and clears all stored placemarks.
+     * Removes all given KML placemarks from the activity_maps and clears all stored placemarks.
      *
      * @param placemarks placemarks to remove
      */
     private void removePlacemarks(HashMap<? extends Feature, Object> placemarks) {
-        // Remove map object from the map
+        // Remove activity_maps object from the activity_maps
         removeFeatures(placemarks);
     }
 
@@ -110,7 +110,7 @@ public class KmlRenderer extends Renderer {
     }
 
     /**
-     * Removes all the KML data from the map and clears all the stored placemarks of those which
+     * Removes all the KML data from the activity_maps and clears all the stored placemarks of those which
      * are in a container.
      */
     private void removeContainers(Iterable<KmlContainer> containers) {
@@ -181,9 +181,9 @@ public class KmlRenderer extends Renderer {
     }
 
     /**
-     * Sets the map that objects are being placed on
+     * Sets the activity_maps that objects are being placed on
      *
-     * @param map map to place placemark, container, style and ground overlays on
+     * @param map activity_maps to place placemark, container, style and ground overlays on
      */
     public void setMap(GoogleMap map) {
         removeLayerFromMap();
@@ -237,7 +237,7 @@ public class KmlRenderer extends Renderer {
     }
 
     /**
-     * Removes all the KML data from the map and clears all the stored placemarks
+     * Removes all the KML data from the activity_maps and clears all the stored placemarks
      */
     public void removeLayerFromMap() {
         removePlacemarks(getAllFeatures());
@@ -250,7 +250,7 @@ public class KmlRenderer extends Renderer {
     }
 
     /**
-     * Iterates over the placemarks, gets its style or assigns a default one and adds it to the map
+     * Iterates over the placemarks, gets its style or assigns a default one and adds it to the activity_maps
      *
      * @param placemarks
      */
@@ -261,7 +261,7 @@ public class KmlRenderer extends Renderer {
     }
 
     /**
-     * Adds placemarks with their corresponding styles onto the map
+     * Adds placemarks with their corresponding styles onto the activity_maps
      *
      * @param kmlContainers An arraylist of folders
      */
@@ -324,7 +324,7 @@ public class KmlRenderer extends Renderer {
      * recursing over multi-geometry placemarks to add icons to all point geometries
      *
      * @param iconUrl    icon url of icon to add to markers
-     * @param placemarks map of placemark to features
+     * @param placemarks activity_maps of placemark to features
      */
     private void addIconToMarkers(String iconUrl, HashMap<KmlPlacemark, Object> placemarks) {
         for (Feature placemark : placemarks.keySet()) {
@@ -425,10 +425,10 @@ public class KmlRenderer extends Renderer {
     }
 
     /**
-     * Adds a ground overlay adds all the ground overlays onto the map and recursively adds all
+     * Adds a ground overlay adds all the ground overlays onto the activity_maps and recursively adds all
      * ground overlays stored in the given containers
      *
-     * @param groundOverlays ground overlays to add to the map
+     * @param groundOverlays ground overlays to add to the activity_maps
      * @param kmlContainers  containers to check for ground overlays
      */
     private void addGroundOverlays(HashMap<KmlGroundOverlay, GroundOverlay> groundOverlays,
@@ -441,9 +441,9 @@ public class KmlRenderer extends Renderer {
     }
 
     /**
-     * Adds all given ground overlays to the map
+     * Adds all given ground overlays to the activity_maps
      *
-     * @param groundOverlays hashmap of ground overlays to add to the map
+     * @param groundOverlays hashmap of ground overlays to add to the activity_maps
      */
     private void addGroundOverlays(HashMap<KmlGroundOverlay, GroundOverlay> groundOverlays) {
         for (KmlGroundOverlay groundOverlay : groundOverlays.keySet()) {
@@ -472,10 +472,10 @@ public class KmlRenderer extends Renderer {
     }
 
     /**
-     * Adds ground overlays from a given URL onto the map
+     * Adds ground overlays from a given URL onto the activity_maps
      *
      * @param groundOverlayUrl url of ground overlay
-     * @param groundOverlays   hashmap of ground overlays to add to the map
+     * @param groundOverlays   hashmap of ground overlays to add to the activity_maps
      */
     private void addGroundOverlayToMap(String groundOverlayUrl,
                                        HashMap<KmlGroundOverlay, GroundOverlay> groundOverlays, boolean containerVisibility) {
@@ -494,10 +494,10 @@ public class KmlRenderer extends Renderer {
     }
 
     /**
-     * Adds ground overlays in containers from a given URL onto the map
+     * Adds ground overlays in containers from a given URL onto the activity_maps
      *
      * @param groundOverlayUrl url of ground overlay
-     * @param kmlContainers    containers containing ground overlays to add to the map
+     * @param kmlContainers    containers containing ground overlays to add to the activity_maps
      */
     private void addGroundOverlayInContainerGroups(String groundOverlayUrl,
                                                    Iterable<KmlContainer> kmlContainers, boolean containerVisibility) {
@@ -597,7 +597,7 @@ public class KmlRenderer extends Renderer {
         }
 
         /**
-         * Adds the bitmap to the ground overlay and places it on a map
+         * Adds the bitmap to the ground overlay and places it on a activity_maps
          *
          * @param bitmap bitmap downloaded
          */

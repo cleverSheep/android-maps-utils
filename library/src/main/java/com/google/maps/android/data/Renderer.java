@@ -128,7 +128,7 @@ public class Renderer {
     /**
      * Creates a new Renderer object for KML features
      *
-     * @param map     map to place objects on
+     * @param map     activity_maps to place objects on
      * @param context the Context
      * @param markerManager marker manager to create marker collection from
      * @param polygonManager polygon manager to create polygon collection from
@@ -152,8 +152,8 @@ public class Renderer {
     /**
      * Creates a new Renderer object for GeoJSON features
      *
-     * @param map      map to place objects on
-     * @param features contains a hashmap of features and objects that will go on the map
+     * @param map      activity_maps to place objects on
+     * @param features contains a hashmap of features and objects that will go on the activity_maps
      * @param markerManager marker manager to create marker collection from
      * @param polygonManager polygon manager to create polygon collection from
      * @param polylineManager polyline manager to create polyline collection from
@@ -211,7 +211,7 @@ public class Renderer {
     public static final class ImagesCache {
 
         /**
-         * Map of image URL to map of scale factor to BitmapDescriptors for point marker icons
+         * Map of image URL to activity_maps of scale factor to BitmapDescriptors for point marker icons
          *
          * BitmapDescriptors are cached to avoid creating new BitmapDescriptors for each individual
          * usage of a Bitmap. Each BitmapDescriptor copies the Bitmap it's created from.
@@ -233,9 +233,9 @@ public class Renderer {
     }
 
     /**
-     * Checks if layer has been added to map
+     * Checks if layer has been added to activity_maps
      *
-     * @return true if layer is on map, false otherwise
+     * @return true if layer is on activity_maps, false otherwise
      */
     public boolean isLayerOnMap() {
         return mLayerOnMap;
@@ -260,9 +260,9 @@ public class Renderer {
     }
 
     /**
-     * Sets the map that objects are being placed on
+     * Sets the activity_maps that objects are being placed on
      *
-     * @param map map to place all objects on
+     * @param map activity_maps to place all objects on
      */
     public void setMap(GoogleMap map) {
         mMap = map;
@@ -282,10 +282,10 @@ public class Renderer {
     }
 
     /**
-     * Gets a Feature for the given map object, which is a Marker, Polyline or Polygon.
+     * Gets a Feature for the given activity_maps object, which is a Marker, Polyline or Polygon.
      *
      * @param mapObject Marker, Polyline or Polygon
-     * @return Feature for the given map object
+     * @return Feature for the given activity_maps object
      */
     Feature getFeature(Object mapObject) {
         return mFeatures.getKey(mapObject);
@@ -482,8 +482,8 @@ public class Renderer {
     /**
      * Adds a new mapping to the mFeatures hashmap
      *
-     * @param feature Feature to be added onto the map
-     * @param object  Corresponding map object to this feature
+     * @param feature Feature to be added onto the activity_maps
+     * @param object  Corresponding activity_maps object to this feature
      */
     protected void putFeatures(Feature feature, Object object) {
         mFeatures.put(feature, object);
@@ -566,7 +566,7 @@ public class Renderer {
     }
 
     /**
-     * Removes all given Features from the map and clears all stored features.
+     * Removes all given Features from the activity_maps and clears all stored features.
      *
      * @param features features to remove
      */
@@ -575,12 +575,12 @@ public class Renderer {
     }
 
     /**
-     * Removes all given Features from the map and clears all stored features.
+     * Removes all given Features from the activity_maps and clears all stored features.
      *
      * @param features features to remove
      */
     private void removeFeatures(Collection features) {
-        // Remove map object from the map
+        // Remove activity_maps object from the activity_maps
         for (Object mapObject : features) {
             if (mapObject instanceof Collection) {
                 removeFeatures((Collection) mapObject);
@@ -609,9 +609,9 @@ public class Renderer {
     }
 
     /**
-     * Removes a Feature from the map if its geometry property is not null
+     * Removes a Feature from the activity_maps if its geometry property is not null
      *
-     * @param feature feature to remove from map
+     * @param feature feature to remove from activity_maps
      */
     protected void removeFeature(Feature feature) {
         // Check if given feature is stored
@@ -666,9 +666,9 @@ public class Renderer {
     }
 
     /**
-     * Adds a new Feature to the map if its geometry property is not null.
+     * Adds a new Feature to the activity_maps if its geometry property is not null.
      *
-     * @param feature feature to add to the map
+     * @param feature feature to add to the activity_maps
      */
     protected void addFeature(Feature feature) {
         Object mapObject = FEATURE_NOT_ON_MAP;
@@ -677,11 +677,11 @@ public class Renderer {
         }
         if (mLayerOnMap) {
             if (mFeatures.containsKey(feature)) {
-                // Remove current map objects before adding new ones
+                // Remove current activity_maps objects before adding new ones
                 removeFromMap(mFeatures.get(feature));
             }
             if (feature.hasGeometry()) {
-                // Create new map object
+                // Create new activity_maps object
                 if (feature instanceof KmlPlacemark) {
                     boolean isPlacemarkVisible = getPlacemarkVisibility(feature);
                     String placemarkId = feature.getId();
@@ -698,9 +698,9 @@ public class Renderer {
     }
 
     /**
-     * Given a Marker, Polyline, Polygon or an array of these and removes it from the map
+     * Given a Marker, Polyline, Polygon or an array of these and removes it from the activity_maps
      *
-     * @param mapObject map object or array of map objects to remove from the map
+     * @param mapObject activity_maps object or array of activity_maps objects to remove from the activity_maps
      */
     protected void removeFromMap(Object mapObject) {
         if (mapObject instanceof Marker) {
@@ -719,11 +719,11 @@ public class Renderer {
     }
 
     /**
-     * Adds a new object onto the map using the Geometry for the coordinates and the
+     * Adds a new object onto the activity_maps using the Geometry for the coordinates and the
      * Feature for the styles. (used for GeoJson)
      *
      * @param feature  feature to get geometry style
-     * @param geometry geometry to add to the map
+     * @param geometry geometry to add to the activity_maps
      */
     protected Object addGeoJsonFeatureToMap(Feature feature, Geometry geometry) {
         String geometryType = geometry.getGeometryType();
@@ -769,11 +769,11 @@ public class Renderer {
     }
 
     /**
-     * Adds a single geometry object to the map with its specified style (used for KML)
+     * Adds a single geometry object to the activity_maps with its specified style (used for KML)
      *
-     * @param geometry defines the type of object to add to the map
-     * @param style    defines styling properties to add to the object when added to the map
-     * @return the object that was added to the map, this is a Marker, Polyline, Polygon or an array
+     * @param geometry defines the type of object to add to the activity_maps
+     * @param style    defines styling properties to add to the object when added to the activity_maps
+     * @return the object that was added to the activity_maps, this is a Marker, Polyline, Polygon or an array
      * of either objects
      */
     protected Object addKmlPlacemarkToMap(KmlPlacemark placemark, Geometry geometry, KmlStyle style,
@@ -839,7 +839,7 @@ public class Renderer {
     }
 
     /**
-     * Adds a Point to the map as a Marker
+     * Adds a Point to the activity_maps as a Marker
      *
      * @param markerOptions contains relevant styling properties for the Marker
      * @param point         contains coordinates for the Marker
@@ -887,7 +887,7 @@ public class Renderer {
     }
 
     /**
-     * Adds a LineString to the map as a Polyline
+     * Adds a LineString to the activity_maps as a Polyline
      *
      * @param polylineOptions contains relevant styling properties for the Polyline
      * @param lineString      contains coordinates for the Polyline
@@ -922,7 +922,7 @@ public class Renderer {
     }
 
     /**
-     * Adds a DataPolygon to the map as a Polygon
+     * Adds a DataPolygon to the activity_maps as a Polygon
      *
      * @param polygonOptions
      * @param polygon        contains coordinates for the Polygon
@@ -966,13 +966,13 @@ public class Renderer {
     }
 
     /**
-     * Adds all Geometry objects stored in the GeoJsonGeometryCollection onto the map.
+     * Adds all Geometry objects stored in the GeoJsonGeometryCollection onto the activity_maps.
      * Supports recursive GeometryCollections.
      *
      * @param feature           contains relevant styling properties for the Geometry inside
      *                          the GeoJsonGeometryCollection
      * @param geoJsonGeometries contains an array of Geometry objects
-     * @return array of Marker, Polyline, Polygons that have been added to the map
+     * @return array of Marker, Polyline, Polygons that have been added to the activity_maps
      */
     private ArrayList<Object> addGeometryCollectionToMap(GeoJsonFeature feature,
                                                          List<Geometry> geoJsonGeometries) {
@@ -1019,7 +1019,7 @@ public class Renderer {
     }
 
     /**
-     * Adds all the geometries within a KML MultiGeometry to the map. Supports recursive
+     * Adds all the geometries within a KML MultiGeometry to the activity_maps. Supports recursive
      * MultiGeometry. Combines styling of the placemark with the coordinates of each geometry.
      *
      * @param multiGeometry contains array of geometries for the MultiGeometry
@@ -1039,11 +1039,11 @@ public class Renderer {
     }
 
     /**
-     * Adds all GeoJsonPoint objects in GeoJsonMultiPoint to the map as multiple Markers
+     * Adds all GeoJsonPoint objects in GeoJsonMultiPoint to the activity_maps as multiple Markers
      *
      * @param pointStyle contains relevant styling properties for the Markers
      * @param multiPoint contains an array of GeoJsonPoints
-     * @return array of Markers that have been added to the map
+     * @return array of Markers that have been added to the activity_maps
      */
     private ArrayList<Marker> addMultiPointToMap(GeoJsonPointStyle pointStyle,
                                                  GeoJsonMultiPoint multiPoint) {
@@ -1055,12 +1055,12 @@ public class Renderer {
     }
 
     /**
-     * Adds all GeoJsonLineString objects in the GeoJsonMultiLineString to the map as multiple
+     * Adds all GeoJsonLineString objects in the GeoJsonMultiLineString to the activity_maps as multiple
      * Polylines
      *
      * @param lineStringStyle contains relevant styling properties for the Polylines
      * @param multiLineString contains an array of GeoJsonLineStrings
-     * @return array of Polylines that have been added to the map
+     * @return array of Polylines that have been added to the activity_maps
      */
     private ArrayList<Polyline> addMultiLineStringToMap(GeoJsonLineStringStyle lineStringStyle,
                                                         GeoJsonMultiLineString multiLineString) {
@@ -1072,11 +1072,11 @@ public class Renderer {
     }
 
     /**
-     * Adds all GeoJsonPolygon in the GeoJsonMultiPolygon to the map as multiple Polygons
+     * Adds all GeoJsonPolygon in the GeoJsonMultiPolygon to the activity_maps as multiple Polygons
      *
      * @param polygonStyle contains relevant styling properties for the Polygons
      * @param multiPolygon contains an array of GeoJsonPolygons
-     * @return array of Polygons that have been added to the map
+     * @return array of Polygons that have been added to the activity_maps
      */
     private ArrayList<Polygon> addMultiPolygonToMap(GeoJsonPolygonStyle polygonStyle,
                                                     GeoJsonMultiPolygon multiPolygon) {
@@ -1106,9 +1106,9 @@ public class Renderer {
     }
 
     /**
-     * Adds a ground overlay to the map
+     * Adds a ground overlay to the activity_maps
      *
-     * @param groundOverlayOptions GroundOverlay style options to be added to the map
+     * @param groundOverlayOptions GroundOverlay style options to be added to the activity_maps
      * @return new GroundOverlay object created from the given GroundOverlayOptions
      */
     protected GroundOverlay attachGroundOverlay(GroundOverlayOptions groundOverlayOptions) {
@@ -1171,8 +1171,8 @@ public class Renderer {
     }
 
     /**
-     * Sets a single click listener for each of the map object collections, that will be called
-     * with the corresponding Feature object when an object on the map (Polygon, Marker, Polyline)
+     * Sets a single click listener for each of the activity_maps object collections, that will be called
+     * with the corresponding Feature object when an object on the activity_maps (Polygon, Marker, Polyline)
      * from one of this Renderer's collections is clicked.
      *
      * If getFeature() returns null this means that either the object is inside a KMLContainer,
@@ -1225,7 +1225,7 @@ public class Renderer {
     }
 
     /**
-     * Called if the map object is a MultiPolygon, MultiLineString or a MultiPoint and returns
+     * Called if the activity_maps object is a MultiPolygon, MultiLineString or a MultiPoint and returns
      * the corresponding ArrayList containing the singular Polygons, LineStrings or Points
      * respectively.
      *

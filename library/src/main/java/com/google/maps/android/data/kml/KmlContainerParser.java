@@ -121,7 +121,7 @@ import static org.xmlpull.v1.XmlPullParser.START_TAG;
     }
 
     /**
-     * Creates a new style map and assigns values from the XmlPullParser parser
+     * Creates a new style activity_maps and assigns values from the XmlPullParser parser
      * and stores it into the container.
      */
     private static void setContainerStyleMap(XmlPullParser parser,

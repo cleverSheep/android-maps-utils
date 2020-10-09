@@ -23,7 +23,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
- * Keeps track of collections of markers on the map. Delegates all Marker-related events to each
+ * Keeps track of collections of markers on the activity_maps. Delegates all Marker-related events to each
  * collection's individually managed listeners.
  * <p/>
  * All marker operations (adds and removes) should occur via its collection class. That is, don't

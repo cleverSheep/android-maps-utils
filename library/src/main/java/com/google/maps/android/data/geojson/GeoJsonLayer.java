@@ -54,12 +54,12 @@ public class GeoJsonLayer extends Layer {
 
     /**
      * Creates a new GeoJsonLayer object. Default styles are applied to the GeoJsonFeature objects.
-     * addLayerToMap() must be called to trigger rendering onto a map.
+     * addLayerToMap() must be called to trigger rendering onto a activity_maps.
      *
      * Use this constructor with shared object managers in order to handle multiple layers with
-     * their own event handlers on the map.
+     * their own event handlers on the activity_maps.
      *
-     * @param map         map where the layer is to be rendered
+     * @param map         activity_maps where the layer is to be rendered
      * @param geoJsonFile GeoJSON data to add to the layer
      * @param markerManager marker manager to create marker collection from
      * @param polygonManager polygon manager to create polygon collection from
@@ -84,12 +84,12 @@ public class GeoJsonLayer extends Layer {
 
     /**
      * Creates a new GeoJsonLayer object. Default styles are applied to the GeoJsonFeature objects.
-     * addLayerToMap() must be called to trigger rendering onto a map.
+     * addLayerToMap() must be called to trigger rendering onto a activity_maps.
      *
      * Use this constructor with shared object managers in order to handle multiple layers with
-     * their own event handlers on the map.
+     * their own event handlers on the activity_maps.
      *
-     * @param map        map where the layer is to be rendered
+     * @param map        activity_maps where the layer is to be rendered
      * @param resourceId GeoJSON file to add to the layer
      * @param context    context of the application, required to open the GeoJSON file
      * @param markerManager marker manager to create marker collection from
@@ -106,9 +106,9 @@ public class GeoJsonLayer extends Layer {
 
     /**
      * Creates a new GeoJsonLayer object. Default styles are applied to the GeoJsonFeature objects.
-     * addLayerToMap() must be called to trigger rendering onto a map.
+     * addLayerToMap() must be called to trigger rendering onto a activity_maps.
      *
-     * @param map         map where the layer is to be rendered
+     * @param map         activity_maps where the layer is to be rendered
      * @param geoJsonFile GeoJSON data to add to the layer
      */
     public GeoJsonLayer(GoogleMap map, JSONObject geoJsonFile) {
@@ -117,9 +117,9 @@ public class GeoJsonLayer extends Layer {
 
     /**
      * Creates a new GeoJsonLayer object. Default styles are applied to the GeoJsonFeature objects.
-     * addLayerToMap() must be called to trigger rendering onto a map.
+     * addLayerToMap() must be called to trigger rendering onto a activity_maps.
      *
-     * @param map        map where the layer is to be rendered
+     * @param map        activity_maps where the layer is to be rendered
      * @param resourceId GeoJSON file to add to the layer
      * @param context    context of the application, required to open the GeoJSON file
      * @throws IOException   if the file cannot be open for read
@@ -158,7 +158,7 @@ public class GeoJsonLayer extends Layer {
     }
 
     /**
-     * Adds all the GeoJsonFeature objects parsed from the given GeoJSON data onto the map
+     * Adds all the GeoJsonFeature objects parsed from the given GeoJSON data onto the activity_maps
      */
     @Override
     public void addLayerToMap() {

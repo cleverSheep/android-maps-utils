@@ -23,7 +23,7 @@ import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 
 /**
- * Keeps track of collections of circles on the map. Delegates all Circle-related events to each
+ * Keeps track of collections of circles on the activity_maps. Delegates all Circle-related events to each
  * collection's individually managed listeners.
  * <p/>
  * All circle operations (adds and removes) should occur via its collection class. That is, don't

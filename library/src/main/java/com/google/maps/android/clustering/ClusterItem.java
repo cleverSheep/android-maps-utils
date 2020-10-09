@@ -22,7 +22,7 @@ import androidx.annotation.Nullable;
 import com.google.android.gms.maps.model.LatLng;
 
 /**
- * ClusterItem represents a marker on the map.
+ * ClusterItem represents a marker on the activity_maps.
  */
 public interface ClusterItem {
 

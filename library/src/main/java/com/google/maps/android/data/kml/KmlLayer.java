@@ -43,12 +43,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 /**
- * Document class allows for users to input their KML data and output it onto the map
+ * Document class allows for users to input their KML data and output it onto the activity_maps
  */
 public class KmlLayer extends Layer {
 
     /**
-     * Creates a new KmlLayer object - addLayerToMap() must be called to trigger rendering onto a map.
+     * Creates a new KmlLayer object - addLayerToMap() must be called to trigger rendering onto a activity_maps.
      *
      * Constructor may be called on a background thread, as I/O and parsing may be long-running.
      *
@@ -64,7 +64,7 @@ public class KmlLayer extends Layer {
     }
 
     /**
-     * Creates a new KmlLayer object - addLayerToMap() must be called to trigger rendering onto a map.
+     * Creates a new KmlLayer object - addLayerToMap() must be called to trigger rendering onto a activity_maps.
      *
      * Constructor may be called on a background thread, as I/O and parsing may be long-running.
      *
@@ -80,12 +80,12 @@ public class KmlLayer extends Layer {
     }
 
     /**
-     * Creates a new KmlLayer object - addLayerToMap() must be called to trigger rendering onto a map.
+     * Creates a new KmlLayer object - addLayerToMap() must be called to trigger rendering onto a activity_maps.
      *
      * Constructor may be called on a background thread, as I/O and parsing may be long-running.
      *
      * Use this constructor with shared object managers in order to handle multiple layers with
-     * their own event handlers on the map.
+     * their own event handlers on the activity_maps.
      *
      * @param map        GoogleMap object
      * @param resourceId Raw resource KML or KMZ file
@@ -111,12 +111,12 @@ public class KmlLayer extends Layer {
     }
 
     /**
-     * Creates a new KmlLayer object - addLayerToMap() must be called to trigger rendering onto a map.
+     * Creates a new KmlLayer object - addLayerToMap() must be called to trigger rendering onto a activity_maps.
      *
      * Constructor may be called on a background thread, as I/O and parsing may be long-running.
      *
      * Use this constructor with shared object managers in order to handle multiple layers with
-     * their own event handlers on the map.
+     * their own event handlers on the activity_maps.
      *
      * @param map    GoogleMap object
      * @param stream InputStream containing KML or KMZ file
@@ -206,7 +206,7 @@ public class KmlLayer extends Layer {
     }
 
     /**
-     * Adds the KML data to the map - must be called on the main UI thread
+     * Adds the KML data to the activity_maps - must be called on the main UI thread
      */
     @Override
     public void addLayerToMap() {

@@ -51,7 +51,7 @@ public class WeightedLatLng implements PointQuadTree.Item {
      * @param intensity Intensity to use: should be greater than 0
      *                  Default value is 1.
      *                  This represents the "importance" or "value" of this particular point
-     *                  Higher intensity values map to higher colours.
+     *                  Higher intensity values activity_maps to higher colours.
      *                  Intensity is additive: having two points of intensity 1 at the same
      *                  location is identical to having one of intensity 2.
      */

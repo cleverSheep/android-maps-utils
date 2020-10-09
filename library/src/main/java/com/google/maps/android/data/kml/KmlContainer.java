@@ -62,16 +62,16 @@ public class KmlContainer {
 
     /**
      * @param placemarks Placemark for the container to contain
-     * @param object     Corresponding GoogleMap map object of the basic_placemark (if it has been
+     * @param object     Corresponding GoogleMap activity_maps object of the basic_placemark (if it has been
      *                   added
-     *                   to the map)
+     *                   to the activity_maps)
      */
     /* package */ void setPlacemark(KmlPlacemark placemarks, Object object) {
         mPlacemarks.put(placemarks, object);
     }
 
     /**
-     * @return A map of strings representing a style map, null if no style maps exist
+     * @return A activity_maps of strings representing a style activity_maps, null if no style maps exist
      */
     /* package */ HashMap<String, String> getStyleMap() {
         return mStyleMap;
@@ -103,7 +103,7 @@ public class KmlContainer {
     }
 
     /**
-     * Gets a style Id from map based on an ID
+     * Gets a style Id from activity_maps based on an ID
      */
     public String getStyleIdFromMap(String styleID) {
         return mStyleMap.get(styleID);

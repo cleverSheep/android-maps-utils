@@ -29,9 +29,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Abstract base implementation for map object collection manager classes.
+ * Abstract base implementation for activity_maps object collection manager classes.
  * <p/>
- * Keeps track of collections of objects on the map. Delegates all object-related events to each
+ * Keeps track of collections of objects on the activity_maps. Delegates all object-related events to each
  * collection's individually managed listeners.
  * <p/>
  * All object operations (adds and removes) should occur via its collection class. That is, don't

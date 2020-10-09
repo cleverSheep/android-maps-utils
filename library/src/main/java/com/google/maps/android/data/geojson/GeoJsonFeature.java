@@ -200,7 +200,7 @@ public class GeoJsonFeature extends Feature implements Observer {
     private void checkRedrawFeature(GeoJsonStyle style) {
         if (hasGeometry() && Arrays.asList(style.getGeometryType())
                 .contains(getGeometry().getGeometryType())) {
-            // Don't redraw objects that aren't on the map
+            // Don't redraw objects that aren't on the activity_maps
             setChanged();
             notifyObservers();
         }

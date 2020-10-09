@@ -80,11 +80,11 @@ public class NonHierarchicalViewBasedAlgorithm<T extends ClusterItem>
     }
 
     /**
-     * Update view width and height in case map size was changed.
+     * Update view width and height in case activity_maps size was changed.
      * You need to recluster all the clusters, to update view state after view size changes.
      *
-     * @param width  map width
-     * @param height map height
+     * @param width  activity_maps width
+     * @param height activity_maps height
      */
     public void updateViewSize(int width, int height) {
         mViewWidth = width;

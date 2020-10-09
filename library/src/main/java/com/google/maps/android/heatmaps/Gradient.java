@@ -21,9 +21,9 @@ import android.graphics.Color;
 import java.util.HashMap;
 
 /**
- * A class to generate a color map from a given array of colors and the fractions
+ * A class to generate a color activity_maps from a given array of colors and the fractions
  * that the colors represent by interpolating between their HSV values.
- * This color map is to be used in the HeatmapTileProvider.
+ * This color activity_maps is to be used in the HeatmapTileProvider.
  */
 public class Gradient {
 
@@ -47,7 +47,7 @@ public class Gradient {
     private static final int DEFAULT_COLOR_MAP_SIZE = 1000;
 
     /**
-     * Size of a color map for the heatmap
+     * Size of a color activity_maps for the heatmap
      */
     public final int mColorMapSize;
 
@@ -126,11 +126,11 @@ public class Gradient {
     }
 
     /**
-     * Generates the color map to use with a provided gradient.
+     * Generates the color activity_maps to use with a provided gradient.
      *
      * @param opacity Overall opacity of entire image: every individual alpha value will be
      *                multiplied by this opacity.
-     * @return the generated color map based on the gradient
+     * @return the generated color activity_maps based on the gradient
      */
     int[] generateColorMap(double opacity) {
         HashMap<Integer, ColorInterval> colorIntervals = generateColorIntervals();
@@ -157,7 +157,7 @@ public class Gradient {
     }
 
     /**
-     * Helper function for creation of color map
+     * Helper function for creation of color activity_maps
      * Interpolates between two given colors using their HSV values.
      *
      * @param color1 First color

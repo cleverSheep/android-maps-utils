@@ -43,7 +43,7 @@ public abstract class Layer {
     private Renderer mRenderer;
 
     /**
-     * Adds the KML data to the map
+     * Adds the KML data to the activity_maps
      */
     protected void addKMLToMap() {
         if (mRenderer instanceof KmlRenderer) {
@@ -54,7 +54,7 @@ public abstract class Layer {
     }
 
     /**
-     * Adds GeoJson data to the map
+     * Adds GeoJson data to the activity_maps
      */
     protected void addGeoJsonToMap() {
         if (mRenderer instanceof GeoJsonRenderer) {
@@ -67,7 +67,7 @@ public abstract class Layer {
     public abstract void addLayerToMap();
 
     /**
-     * Removes all the data from the map and clears all the stored placemarks
+     * Removes all the data from the activity_maps and clears all the stored placemarks
      */
     public void removeLayerFromMap() {
         if (mRenderer instanceof GeoJsonRenderer) {
@@ -79,7 +79,7 @@ public abstract class Layer {
 
     /**
      * Sets a single click listener for the entire GoogleMap object, that will be called
-     * with the corresponding Feature object when an object on the map (Polygon,
+     * with the corresponding Feature object when an object on the activity_maps (Polygon,
      * Marker, Polyline) is clicked.
      * <p>
      * If getFeature() returns null this means that either the object is inside a KMLContainer,
@@ -93,7 +93,7 @@ public abstract class Layer {
     }
 
     /**
-     * Callback interface for when a map object is clicked.
+     * Callback interface for when a activity_maps object is clicked.
      */
     public interface OnFeatureClickListener {
         void onFeatureClick(Feature feature);
@@ -179,44 +179,44 @@ public abstract class Layer {
     }
 
     /**
-     * Gets the map on which the layer is rendered
+     * Gets the activity_maps on which the layer is rendered
      *
-     * @return map on which the layer is rendered
+     * @return activity_maps on which the layer is rendered
      */
     public GoogleMap getMap() {
         return mRenderer.getMap();
     }
 
     /**
-     * Renders the layer on the given map. The layer on the current map is removed and
-     * added to the given map.
+     * Renders the layer on the given activity_maps. The layer on the current activity_maps is removed and
+     * added to the given activity_maps.
      *
-     * @param map to render the layer on, if null the layer is cleared from the current map
+     * @param map to render the layer on, if null the layer is cleared from the current activity_maps
      */
     public void setMap(GoogleMap map) {
         mRenderer.setMap(map);
     }
 
     /**
-     * Checks if the current layer has been added to the map
+     * Checks if the current layer has been added to the activity_maps
      *
-     * @return true if the layer is on the map, false otherwise
+     * @return true if the layer is on the activity_maps, false otherwise
      */
     public boolean isLayerOnMap() {
         return mRenderer.isLayerOnMap();
     }
 
     /**
-     * Adds a provided feature to the map
+     * Adds a provided feature to the activity_maps
      *
-     * @param feature feature to add to map
+     * @param feature feature to add to activity_maps
      */
     protected void addFeature(Feature feature) {
         mRenderer.addFeature(feature);
     }
 
     /**
-     * Remove a specified feature from the map
+     * Remove a specified feature from the activity_maps
      *
      * @param feature feature to be removed
      */

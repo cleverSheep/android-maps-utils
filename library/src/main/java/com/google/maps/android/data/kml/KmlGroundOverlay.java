@@ -107,7 +107,7 @@ public class KmlGroundOverlay {
     }
 
     /**
-     * Gets the ground overlay option of the ground overlay on the map
+     * Gets the ground overlay option of the ground overlay on the activity_maps
      *
      * @return GroundOverlayOptions
      */

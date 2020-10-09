@@ -27,8 +27,8 @@ import java.util.Map;
  * the overall set of values, and collection values, are unique.
  * <p>
  * Used by GeoJsonRenderer to store GeoJsonFeature instances mapped to corresponding Marker,
- * Polyline, and Polygon map objects. We want to look these up in reverse to provide access
- * to GeoJsonFeature instances when map objects are clicked.
+ * Polyline, and Polygon activity_maps objects. We want to look these up in reverse to provide access
+ * to GeoJsonFeature instances when activity_maps objects are clicked.
  */
 public class BiMultiMap<K> extends HashMap<K, Object> {
 
@@ -36,7 +36,7 @@ public class BiMultiMap<K> extends HashMap<K, Object> {
 
     @Override
     public void putAll(Map<? extends K, ?> map) {
-        // put() manages the reverse map, so call it on each entry.
+        // put() manages the reverse activity_maps, so call it on each entry.
         for (Entry<? extends K, ?> entry : map.entrySet()) {
             put(entry.getKey(), entry.getValue());
         }
@@ -44,7 +44,7 @@ public class BiMultiMap<K> extends HashMap<K, Object> {
 
     @Override
     public Object put(K key, Object value) {
-        // Store value/key in the reverse map.
+        // Store value/key in the reverse activity_maps.
         if (value instanceof Collection) {
             return put(key, (Collection) value);
         } else {
@@ -54,7 +54,7 @@ public class BiMultiMap<K> extends HashMap<K, Object> {
     }
 
     public Object put(K key, Collection values) {
-        // Store values/key in the reverse map.
+        // Store values/key in the reverse activity_maps.
         for (Object value : values) {
             mValuesToKeys.put(value, key);
         }
@@ -64,7 +64,7 @@ public class BiMultiMap<K> extends HashMap<K, Object> {
     @Override
     public Object remove(Object key) {
         Object value = super.remove(key);
-        // Also remove the value(s) and key from the reverse map.
+        // Also remove the value(s) and key from the reverse activity_maps.
         if (value instanceof Collection) {
             for (Object valueItem : (Collection) value) {
                 mValuesToKeys.remove(valueItem);

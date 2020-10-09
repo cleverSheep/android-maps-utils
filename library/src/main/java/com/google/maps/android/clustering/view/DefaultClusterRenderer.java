@@ -87,7 +87,7 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements ClusterRen
     private ShapeDrawable mColoredCircleBackground;
 
     /**
-     * Markers that are currently on the map.
+     * Markers that are currently on the activity_maps.
      */
     private Set<MarkerWithPosition> mMarkers = Collections.newSetFromMap(
             new ConcurrentHashMap<MarkerWithPosition, Boolean>());
@@ -349,7 +349,7 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements ClusterRen
     /**
      * Determine whether the cluster should be rendered as individual markers or a cluster.
      * @param cluster cluster to examine for rendering
-     * @return true if the provided cluster should be rendered as a single marker on the map, false
+     * @return true if the provided cluster should be rendered as a single marker on the activity_maps, false
      * if the items within this cluster should be rendered as individual markers instead.
      */
     protected boolean shouldRenderAsCluster(@NonNull Cluster<T> cluster) {
@@ -365,11 +365,11 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements ClusterRen
      * <p/>
      * There are three stages for the render:
      * <p/>
-     * 1. Markers are added to the map
+     * 1. Markers are added to the activity_maps
      * <p/>
      * 2. Markers are animated to their final position
      * <p/>
-     * 3. Any old markers are removed from the map
+     * 3. Any old markers are removed from the activity_maps
      * <p/>
      * When zooming in, markers are animated out from the nearest existing cluster. When zooming
      * out, existing clusters are animated to the nearest new cluster.
@@ -571,7 +571,7 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements ClusterRen
     }
 
     /**
-     * Handles all markerWithPosition manipulations on the map. Work (such as adding, removing, or
+     * Handles all markerWithPosition manipulations on the activity_maps. Work (such as adding, removing, or
      * animating a markerWithPosition) is performed while trying not to block the rest of the app's
      * UI.
      */
@@ -791,7 +791,7 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements ClusterRen
     }
 
     /**
-     * Called before the marker for a ClusterItem is added to the map. The default implementation
+     * Called before the marker for a ClusterItem is added to the activity_maps. The default implementation
      * sets the marker and snippet text based on the respective item text if they are both
      * available, otherwise it will set the title if available, and if not it will set the marker
      * title to the item snippet text if that is available.
@@ -818,7 +818,7 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements ClusterRen
     }
 
     /**
-     * Called when a cached marker for a ClusterItem already exists on the map so the marker may
+     * Called when a cached marker for a ClusterItem already exists on the activity_maps so the marker may
      * be updated to the latest item values. Default implementation updates the title and snippet
      * of the marker if they have changed and refreshes the info window of the marker if it is open.
      * Note that the contents of the item may not have changed since the cached marker was created -
@@ -866,7 +866,7 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements ClusterRen
     }
 
     /**
-     * Called before the marker for a Cluster is added to the map.
+     * Called before the marker for a Cluster is added to the activity_maps.
      * The default implementation draws a circle with a rough count of the number of items.
      *
      * The first time {@link ClusterManager#cluster()} is invoked on a set of items
@@ -907,16 +907,16 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements ClusterRen
     }
 
     /**
-     * Called after the marker for a Cluster has been added to the map.
+     * Called after the marker for a Cluster has been added to the activity_maps.
      *
-     * @param cluster the cluster that was just added to the map
-     * @param marker the marker representing the cluster that was just added to the map
+     * @param cluster the cluster that was just added to the activity_maps
+     * @param marker the marker representing the cluster that was just added to the activity_maps
      */
     protected void onClusterRendered(@NonNull Cluster<T> cluster, @NonNull Marker marker) {
     }
 
     /**
-     * Called when a cached marker for a Cluster already exists on the map so the marker may
+     * Called when a cached marker for a Cluster already exists on the activity_maps so the marker may
      * be updated to the latest cluster values. Default implementation updated the icon with a
      * circle with a rough count of the number of items. Note that the contents of the cluster may
      * not have changed since the cached marker was created - implementations of this method are
@@ -938,10 +938,10 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements ClusterRen
     }
 
     /**
-     * Called after the marker for a ClusterItem has been added to the map.
+     * Called after the marker for a ClusterItem has been added to the activity_maps.
      *
-     * @param clusterItem the item that was just added to the map
-     * @param marker the marker representing the item that was just added to the map
+     * @param clusterItem the item that was just added to the activity_maps
+     * @param marker the marker representing the item that was just added to the activity_maps
      */
     protected void onClusterItemRendered(@NonNull T clusterItem, @NonNull Marker marker) {
     }

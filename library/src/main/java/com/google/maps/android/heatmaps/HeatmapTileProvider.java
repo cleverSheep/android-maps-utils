@@ -99,7 +99,7 @@ public class HeatmapTileProvider implements TileProvider {
     private static final int DEFAULT_MAX_ZOOM = 11;
 
     /**
-     * Maximum zoom level possible on a map.
+     * Maximum zoom level possible on a activity_maps.
      */
     private static final int MAX_ZOOM_LEVEL = 22;
 
@@ -134,12 +134,12 @@ public class HeatmapTileProvider implements TileProvider {
     private int mRadius;
 
     /**
-     * Gradient of the color map
+     * Gradient of the color activity_maps
      */
     private Gradient mGradient;
 
     /**
-     * Color map to use to color tiles
+     * Color activity_maps to use to color tiles
      */
     private int[] mColorMap;
 
@@ -293,7 +293,7 @@ public class HeatmapTileProvider implements TileProvider {
         // Compute kernel density function (sd = 1/3rd of radius)
         mKernel = generateKernel(mRadius, mRadius / 3.0);
 
-        // Generate color map
+        // Generate color activity_maps
         setGradient(mGradient);
 
         // Set the data
@@ -306,7 +306,7 @@ public class HeatmapTileProvider implements TileProvider {
      *
      * @param data Data set of points to use in the heatmap, as LatLngs.
      *             Note: Editing data without calling setWeightedData again will not update the data
-     *             displayed on the map, but will impact calculation of max intensity values,
+     *             displayed on the activity_maps, but will impact calculation of max intensity values,
      *             as the collection you pass in is stored.
      *             Outside of changing the data, max intensity values are calculated only upon
      *             changing the radius.
@@ -477,7 +477,7 @@ public class HeatmapTileProvider implements TileProvider {
     }
 
     /**
-     * Setter for gradient/color map.
+     * Setter for gradient/color activity_maps.
      * User should clear overlay's tile cache (using clearTileCache()) after calling this.
      *
      * @param gradient Gradient to set
@@ -509,7 +509,7 @@ public class HeatmapTileProvider implements TileProvider {
      */
     public void setOpacity(double opacity) {
         mOpacity = opacity;
-        // need to recompute kernel color map
+        // need to recompute kernel color activity_maps
         setGradient(mGradient);
     }
 
@@ -527,7 +527,7 @@ public class HeatmapTileProvider implements TileProvider {
 
     /**
      * Gets array of maximum intensity values to use with the heatmap for each zoom level
-     * This is the value that the highest color on the color map corresponds to
+     * This is the value that the highest color on the color activity_maps corresponds to
      *
      * @param radius radius of the heatmap
      * @return array of maximum intensities
@@ -707,17 +707,17 @@ public class HeatmapTileProvider implements TileProvider {
     }
 
     /**
-     * Converts a grid of intensity values to a colored Bitmap, using a given color map
+     * Converts a grid of intensity values to a colored Bitmap, using a given color activity_maps
      *
      * @param grid     the input grid (assumed to be square)
-     * @param colorMap color map (created by generateColorMap)
+     * @param colorMap color activity_maps (created by generateColorMap)
      * @param max      Maximum intensity value: maps to 100% on gradient
      * @return the colorized grid in Bitmap form, with same dimensions as grid
      */
     static Bitmap colorize(double[][] grid, int[] colorMap, double max) {
         // Maximum color value
         int maxColor = colorMap[colorMap.length - 1];
-        // Multiplier to "scale" intensity values with, to map to appropriate color
+        // Multiplier to "scale" intensity values with, to activity_maps to appropriate color
         double colorMapScaling = (colorMap.length - 1) / max;
         // Dimension of the input grid (and dimension of output bitmap)
         int dim = grid.length;
@@ -753,7 +753,7 @@ public class HeatmapTileProvider implements TileProvider {
     }
 
     /**
-     * Calculate a reasonable maximum intensity value to map to maximum color intensity
+     * Calculate a reasonable maximum intensity value to activity_maps to maximum color intensity
      *
      * @param points    Collection of LatLngs to put into buckets
      * @param bounds    Bucket boundaries
